@@ -10,7 +10,7 @@ namespace Memento.Gpx.Interfaces.Layout
     /// <summary>
     /// il est possible de rajouter des méthodes spécifiques ou des propriétés
     /// </summary>
-    internal interface IGpxTypeDataLayer : IDataLayer<GpxType>
+    public interface IGpxTypeDataLayer : IDataLayer<GpxType>
     {
         
     }

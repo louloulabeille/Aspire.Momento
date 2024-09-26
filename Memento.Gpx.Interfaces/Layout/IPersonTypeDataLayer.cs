@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Memento.Gpx.Interfaces.Layout
 {
-    internal interface IPersonTypeDataLayer : IDataLayer<PersonType>
+    public interface IPersonTypeDataLayer : IDataLayer<PersonType>
     {
     }
 }

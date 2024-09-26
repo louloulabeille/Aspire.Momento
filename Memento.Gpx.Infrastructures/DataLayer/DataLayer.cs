@@ -10,7 +10,7 @@ using Memento.Gpx.Infrastructures.Data;
 
 namespace Memento.Gpx.Infrastructures.DataLayer
 {
-    internal abstract class DataLayer <T>(MementoDbContext dbContext) : IDataLayer<T> where T : class
+    public abstract class DataLayer <T>(MementoDbContext dbContext) : IDataLayer<T> where T : class
     {
         #region Propriété
         protected DbSet<T> _dbSet = dbContext.Set<T>();
