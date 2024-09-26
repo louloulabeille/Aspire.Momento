@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Memento.Gpx.Domain
 {
     /// <summary>
-    /// voir lien https://www.topografix.com/GPX/1/1/#type_gpxType
+    /// voir lien https://www.topografix.com/GPX/1/1/#type_metadataType
     /// & https://fr.wikipedia.org/wiki/GPX_(format_de_fichier)
     /// version GPX 1.1
     /// </summary>

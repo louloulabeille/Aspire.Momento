@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Memento.Gpx.Domain
 {
+    /// <summary>
+    /// Classe BoundsType voir documentation GPX version 1.1
+    /// https://www.topografix.com/GPX/1/1/#type_boundsType
+    /// coordonnée max et min de l'étendu de l'élément 
+    /// </summary>
     public class BoundsType
     {
         public int Id { get; set; }
