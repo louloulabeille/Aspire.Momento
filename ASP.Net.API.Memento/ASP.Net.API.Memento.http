@@ -1,0 +1,6 @@
+@ASP.Net.API.Memento_HostAddress = http://localhost:5250
+
+GET {{ASP.Net.API.Memento_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

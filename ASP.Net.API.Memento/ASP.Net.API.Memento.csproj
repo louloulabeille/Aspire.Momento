@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>39051f1b-513a-4db1-85a2-6a3b0d6cb447</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspireMomento.ServiceDefaults\AspireMomento.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\Memento.Gpx.Domain\Memento.Gpx.Domain.csproj" />
+    <ProjectReference Include="..\Memento.Gpx.Infrastructures\Memento.Gpx.Infrastructures.csproj" />
+  </ItemGroup>
+
+</Project>

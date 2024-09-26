@@ -1,0 +1,81 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASP.Net.API.Memento", "ASP.Net.API.Memento\ASP.Net.API.Memento.csproj", "{8A0F1567-3221-45E2-AD74-934F6F9D7C1B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Momento.AppHost", "Aspire.Momento\Aspire.Momento.AppHost\Aspire.Momento.AppHost.csproj", "{86F4CE03-91AB-4BBF-B28C-8379B8789C97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Momento.ServiceDefaults", "Aspire.Momento\Aspire.Momento.ServiceDefaults\Aspire.Momento.ServiceDefaults.csproj", "{60F34CB8-1585-4942-9CD5-BC194DCA8C32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Momento.ApiService", "Aspire.Momento\Aspire.Momento.ApiService\Aspire.Momento.ApiService.csproj", "{2D8AD578-AC4F-4413-A9E5-6FA901AA5100}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Momento.Web", "Aspire.Momento\Aspire.Momento.Web\Aspire.Momento.Web.csproj", "{7B27A79A-742A-4E97-A0B6-D35210A3F3D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Momento.Tests", "Aspire.Momento\Aspire.Momento.Tests\Aspire.Momento.Tests.csproj", "{DA762C0B-2A35-4B6F-8DDC-87369A886D10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.ASP.Net.API.Memento", "Test.ASP.Net.API.Memento\Test.ASP.Net.API.Memento.csproj", "{F4E93102-8399-4A65-83D3-55ED5B954491}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C3844B63-4538-4695-8756-B57C9FA8E92E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{932CF3A2-4F0B-4091-B90A-FEF6C7C1B52C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Memento.Gpx.Domain", "Memento.Gpx.Domain\Memento.Gpx.Domain.csproj", "{0D1C65A4-A223-48EE-B341-359032355E57}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Memento.Gpx.Infrastructures", "Memento.Gpx.Infrastructures\Memento.Gpx.Infrastructures.csproj", "{BEB78021-D1DE-481A-A2CB-4D3E3B6EA58C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A0F1567-3221-45E2-AD74-934F6F9D7C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A0F1567-3221-45E2-AD74-934F6F9D7C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A0F1567-3221-45E2-AD74-934F6F9D7C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A0F1567-3221-45E2-AD74-934F6F9D7C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F4CE03-91AB-4BBF-B28C-8379B8789C97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F4CE03-91AB-4BBF-B28C-8379B8789C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F4CE03-91AB-4BBF-B28C-8379B8789C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F4CE03-91AB-4BBF-B28C-8379B8789C97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60F34CB8-1585-4942-9CD5-BC194DCA8C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F34CB8-1585-4942-9CD5-BC194DCA8C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60F34CB8-1585-4942-9CD5-BC194DCA8C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F34CB8-1585-4942-9CD5-BC194DCA8C32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D8AD578-AC4F-4413-A9E5-6FA901AA5100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8AD578-AC4F-4413-A9E5-6FA901AA5100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8AD578-AC4F-4413-A9E5-6FA901AA5100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8AD578-AC4F-4413-A9E5-6FA901AA5100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B27A79A-742A-4E97-A0B6-D35210A3F3D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B27A79A-742A-4E97-A0B6-D35210A3F3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B27A79A-742A-4E97-A0B6-D35210A3F3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B27A79A-742A-4E97-A0B6-D35210A3F3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA762C0B-2A35-4B6F-8DDC-87369A886D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA762C0B-2A35-4B6F-8DDC-87369A886D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA762C0B-2A35-4B6F-8DDC-87369A886D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA762C0B-2A35-4B6F-8DDC-87369A886D10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E93102-8399-4A65-83D3-55ED5B954491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E93102-8399-4A65-83D3-55ED5B954491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E93102-8399-4A65-83D3-55ED5B954491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E93102-8399-4A65-83D3-55ED5B954491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1C65A4-A223-48EE-B341-359032355E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1C65A4-A223-48EE-B341-359032355E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1C65A4-A223-48EE-B341-359032355E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1C65A4-A223-48EE-B341-359032355E57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB78021-D1DE-481A-A2CB-4D3E3B6EA58C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB78021-D1DE-481A-A2CB-4D3E3B6EA58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB78021-D1DE-481A-A2CB-4D3E3B6EA58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB78021-D1DE-481A-A2CB-4D3E3B6EA58C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4E93102-8399-4A65-83D3-55ED5B954491} = {C3844B63-4538-4695-8756-B57C9FA8E92E}
+		{0D1C65A4-A223-48EE-B341-359032355E57} = {932CF3A2-4F0B-4091-B90A-FEF6C7C1B52C}
+		{BEB78021-D1DE-481A-A2CB-4D3E3B6EA58C} = {932CF3A2-4F0B-4091-B90A-FEF6C7C1B52C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7603A9C5-FBB3-4DDE-AB66-A1FDB6C844C6}
+	EndGlobalSection
+EndGlobal

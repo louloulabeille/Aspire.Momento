@@ -1,0 +1,36 @@
+﻿1 - installer dotnet ef sur le Pc : dotnet tool install --global dotnet-ef
+2 - créer la classe *DbContextFactory qui va être appelé lors de l'utilisation de la commande de la création des fichiers de Migration
+3 - lancer la commande de migration : dotnet ef migrations add NomdelaMigration --output-dir RépertoireEnregistrementDesFichiers
+4 - création du script sql : dotnet ef migrations script ou dotnet ef migrations script NomdelaMigration
+Résultat :
+Build started...
+Build succeeded.
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+CREATE TABLE [Gpx] (
+    [Id] int NOT NULL IDENTITY,
+    [Version] nvarchar(max) NOT NULL,
+    [Creator] nvarchar(max) NOT NULL,
+    [Extensions] nvarchar(max) NULL,
+    CONSTRAINT [PK_Gpx] PRIMARY KEY ([Id])
+);
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20240925091951_InitlaCreate', N'8.0.8');
+GO
+
+COMMIT;
+
+5 - Mise en place de la migration sur le moteur de base de données : dotnet ef database update

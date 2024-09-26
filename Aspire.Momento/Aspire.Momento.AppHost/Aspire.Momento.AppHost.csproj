@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>c973af27-d419-4634-8e27-744ad07e2f0a</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ASP.Net.API.Memento\ASP.Net.API.Memento.csproj" />
+    <ProjectReference Include="..\Aspire.Momento.ApiService\Aspire.Momento.ApiService.csproj" />
+    <ProjectReference Include="..\Aspire.Momento.Web\Aspire.Momento.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.1.0" />
+  </ItemGroup>
+
+</Project>
