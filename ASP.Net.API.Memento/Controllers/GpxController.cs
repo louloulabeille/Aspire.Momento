@@ -8,17 +8,19 @@ namespace ASP.Net.API.Memento.Controllers
 {
     [Route("api/v1/Memento/[controller]")]
     [ApiController]
-    public class GpxController(MementoDbContext context) : ControllerBase
+    public class GpxController(MementoDbContext context, ILogger<GpxController> logger) : ControllerBase
     {
         #region Properties
         private readonly MementoDbContext _context = context;
+        private readonly ILogger<GpxController> _logger = logger;
         #endregion
+
         #region Constructeur
         //public GpxController(MementoDbContext context) {
         //    _context = context; 
         //}
         #endregion
-        [HttpGet("GetAll")]
+        [HttpGet(Name ="GetAll")]
         public IActionResult GetAll()
         {
             try
@@ -52,10 +54,9 @@ namespace ASP.Net.API.Memento.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(GpxType? gpx)
+        public IActionResult Post()
         {
-            var gpxValue = gpx is null ? new GpxType() { Version = "1.1", Creator = "loulou"}
-            : gpx;
+            var gpxValue = new GpxType() { Version = "1.1", Creator = "loulou"};
 
             _context.Add(gpxValue);
             _context.SaveChanges();
