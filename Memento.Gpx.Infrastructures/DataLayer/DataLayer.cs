@@ -37,22 +37,22 @@ namespace Memento.Gpx.Infrastructures.DataLayer
         //    return _dbSet.ToList();
         //}
 
-        public T? GetById(int id) => _dbSet.Find(id);
+        public virtual T? GetById(int id) => _dbSet.Find(id);
         //{
         //    throw new NotImplementedException();
         //}
 
-        public void Remove(T entity) => _dbSet.Remove(entity);
+        public virtual void Remove(T entity) => _dbSet.Remove(entity);
         //{
         //    throw new NotImplementedException();
         //}
 
-        public void RemoveRange(IEnumerable<T> entities) => _dbSet.RemoveRange(entities);
+        public virtual void RemoveRange(IEnumerable<T> entities) => _dbSet.RemoveRange(entities);
         //{
         //    throw new NotImplementedException();
         //}
 
-        public void Update(T entity) => _dbSet.Update(entity);
+        public virtual void Update(T entity) => _dbSet.Update(entity);
         //{
         //    throw new NotImplementedException();
         //}

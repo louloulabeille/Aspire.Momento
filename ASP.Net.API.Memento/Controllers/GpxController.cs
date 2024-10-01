@@ -1,5 +1,7 @@
-﻿using Memento.Gpx.Domain;
+﻿using Memento.Gpx.Application.Repository;
+using Memento.Gpx.Domain;
 using Memento.Gpx.Infrastructures.Data;
+using Memento.Gpx.Interfaces.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,11 +10,12 @@ namespace ASP.Net.API.Memento.Controllers
 {
     [Route("api/v1/Memento/[controller]")]
     [ApiController]
-    public class GpxController(MementoDbContext context, ILogger<GpxController> logger) : ControllerBase
+    public class GpxController(MementoDbContext context, ILogger<GpxController>? logger) : ControllerBase
     {
         #region Properties
         private readonly MementoDbContext _context = context;
-        private readonly ILogger<GpxController> _logger = logger;
+        private readonly ILogger<GpxController>? _logger = logger;
+        private readonly GpxTypeRepository _repository = new (context);
         #endregion
 
         #region Constructeur
@@ -62,7 +65,7 @@ namespace ASP.Net.API.Memento.Controllers
                 Time = DateTime.Now,
             };
 
-            _context.Add(gpxValue);
+            _repository.Add(gpxValue);
             _context.SaveChanges();
 
             return this.Ok();

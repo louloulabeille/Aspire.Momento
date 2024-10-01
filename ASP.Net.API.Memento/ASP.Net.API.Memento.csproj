@@ -16,8 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AspireMomento.ServiceDefaults\AspireMomento.ServiceDefaults.csproj" />
-    <ProjectReference Include="..\Memento.Gpx.Domain\Memento.Gpx.Domain.csproj" />
-    <ProjectReference Include="..\Memento.Gpx.Infrastructures\Memento.Gpx.Infrastructures.csproj" />
+    <ProjectReference Include="..\Memento.Gpx.Application\Memento.Gpx.Application.csproj" />
   </ItemGroup>
 
 </Project>

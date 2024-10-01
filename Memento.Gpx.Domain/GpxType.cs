@@ -9,6 +9,9 @@ namespace Memento.Gpx.Domain
 {
     public class GpxType
     {
+        /// <summary>
+        /// il faudra créer une classe DTO data transfert object lors de la sérialization
+        /// </summary>
         #region properties non serializable
         public int Id { get; set; } // clé primaire
         #endregion
