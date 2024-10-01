@@ -12,6 +12,6 @@ namespace Memento.Gpx.Interfaces.Repository
         public void Add(BoundsType limiteCoordonnee);
         public void Remove(BoundsType limiteCoordonnee);
         public void Update(BoundsType limiteCoordonnee);
-        public BoundsType? Find(int id);
+        public BoundsType? GetById(int id);
     }
 }

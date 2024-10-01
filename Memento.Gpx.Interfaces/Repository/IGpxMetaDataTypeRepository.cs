@@ -12,6 +12,6 @@ namespace Memento.Gpx.Interfaces.Repository
         public void Add(GpxMetadataType metaData);
         public void Remove(GpxMetadataType metaData);
         public void Update(GpxMetadataType metaData);
-        public GpxMetadataType? Find(int id);
+        public GpxMetadataType? GetById(int id);
     }
 }

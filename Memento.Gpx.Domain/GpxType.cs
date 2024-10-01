@@ -9,10 +9,12 @@ namespace Memento.Gpx.Domain
 {
     public class GpxType
     {
-
+        #region properties non serializable
+        public int Id { get; set; } // clé primaire
+        public DateTime Created { get; set; } = DateTime.Now; // date de création du document
+        #endregion
 
         #region properties
-        public int Id { get; set; }
         public required string Version { get; set; } = "1.1"; //[1]
         public required string Creator { get; set; } // [1]
         public GpxMetadataType? GpxMetadataType { get; set; } // [0..1] Métadonnées du fichier
