@@ -12,7 +12,7 @@ namespace Memento.Gpx.Application.DTO.Json
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Email { get; set; }
-        public LinkTypeDTO? LinkType { get; set; }
+        public LinkTypeDTO? LinkTypeDTO { get; set; }
         //public required IEnumerable<GpxMetadataType> GpxMetadataType { get; set; }
     }
 }
