@@ -28,16 +28,17 @@ namespace ASP.Net.API.Memento.Controllers
         {
             try
             {
-                var datas = Enumerable.Range(1, 5).Select(index => new GpxType
-                {
-                    Id = index,
-                    Version = "1.1",
-                    Creator = "Louloulabeille" + index.ToString(),
-                }).ToArray();
+                var datas = _repository.GatAll();
 
                 if (datas is not null)
                 {
-                    return this.Ok(datas);
+                    foreach (var data in datas)
+                    {
+                        Console.WriteLine($"{data.Id} {data.Version} {data.Creator} {data.GpxMetadataType?.Time}");
+                    }
+                    var first = datas.First();
+                    var dat = new GpxType() { Id = first.Id, Version = first.Version, Creator = first.Creator };
+                    return this.Ok(dat);
                 }
                 return this.NoContent();
             }
