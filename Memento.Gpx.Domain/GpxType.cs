@@ -11,7 +11,6 @@ namespace Memento.Gpx.Domain
     {
         #region properties non serializable
         public int Id { get; set; } // clé primaire
-        public DateTime Created { get; set; } = DateTime.Now; // date de création du document
         #endregion
 
         #region properties

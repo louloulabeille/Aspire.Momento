@@ -30,7 +30,7 @@ namespace Memento.Gpx.Application.Repository
 
         public IEnumerable<GpxType> GetGpxByDescDate()
         {
-            return _layer.GetAll().OrderByDescending(item => item.Created);
+            return _layer.GetAll().OrderByDescending(item => item.GpxMetadataType?.Time);
         }
 
         public GpxType? GetById(int id)

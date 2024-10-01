@@ -57,6 +57,10 @@ namespace ASP.Net.API.Memento.Controllers
         public IActionResult Post()
         {
             var gpxValue = new GpxType() { Version = "1.1", Creator = "loulou"};
+            gpxValue.GpxMetadataType = new GpxMetadataType() {
+                GpxType = gpxValue,
+                Time = DateTime.Now,
+            };
 
             _context.Add(gpxValue);
             _context.SaveChanges();
