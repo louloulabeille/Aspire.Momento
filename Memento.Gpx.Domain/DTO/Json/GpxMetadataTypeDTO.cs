@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Memento.Gpx.Domain.DTO.Json
@@ -21,6 +22,8 @@ namespace Memento.Gpx.Domain.DTO.Json
         public BoundsTypeDTO? BoundsType { get; set; } // [0..1] limite des coordonnées
         public string? Extensions { get; set; } // [0..1] extension qui peuvent être rajouté dans le fichier
         public int GpxTypeId { get; set; }
+        //[JsonIgnore]
+        //public GpxTypeDTO? GpxType { get; set; }
         #endregion
     }
 }

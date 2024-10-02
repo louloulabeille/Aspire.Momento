@@ -32,7 +32,7 @@ namespace Memento.Gpx.Domain
         public BoundsType? BoundsType { get; set; } // [0..1] limite des coordonnées
         public string? Extensions { get; set; } // [0..1] extension qui peuvent être rajouté dans le fichier
         public int GpxTypeId { get; set; }
-        public required GpxType GpxType { get; set; }
+        public GpxType? GpxType { get; set; }
         #endregion
     }
 

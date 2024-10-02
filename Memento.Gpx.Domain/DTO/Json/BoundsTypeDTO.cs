@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Memento.Gpx.Domain.DTO.Json
@@ -15,6 +16,7 @@ namespace Memento.Gpx.Domain.DTO.Json
         public required float Maxlat;
         public required float Maxlon;
         public int GpxMetadataTypeId { get; set; } // clé étrangère
-        //public GpxMetadataType? GpxMetadataType { get; set; }
+        //[JsonIgnore]
+        //public GpxMetadataTypeDTO? GpxMetadataType { get; set; }
     }
 }

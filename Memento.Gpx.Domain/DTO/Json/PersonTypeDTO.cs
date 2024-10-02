@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Memento.Gpx.Domain.DTO.Json
@@ -13,6 +14,7 @@ namespace Memento.Gpx.Domain.DTO.Json
         public string? Name { get; set; }
         public string? Email { get; set; }
         public LinkTypeDTO? LinkType { get; set; }
-        //public required IEnumerable<GpxMetadataType> GpxMetadataType { get; set; }
+        //[JsonIgnore]
+        //public IEnumerable<GpxMetadataTypeDTO>? GpxMetadataType { get; set; }
     }
 }

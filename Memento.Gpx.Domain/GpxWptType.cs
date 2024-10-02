@@ -60,7 +60,7 @@ namespace Memento.Gpx.Domain
             }
         }
         public string? Extensions { get; set; } // [0..1] extension qui peuvent être rajouté dans le fichier
-        public required GpxType GpxType { get; set; }
+        public GpxType? GpxType { get; set; }
 
 
     }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Memento.Gpx.Domain.DTO.Json
@@ -32,5 +33,7 @@ namespace Memento.Gpx.Domain.DTO.Json
         // [0..1] identifiant de la station
         public int? Dgpsid;
         public string? Extensions { get; set; } // [0..1] extension qui peuvent être rajouté dans le fichier
+        //[JsonIgnore]
+        //public GpxTypeDTO? GpxType { get; set; }
     }
 }
