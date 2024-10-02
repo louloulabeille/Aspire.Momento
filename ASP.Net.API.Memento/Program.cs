@@ -1,13 +1,9 @@
 using AutoMapper;
 using Memento.Gpx.Infrastructures.AutoMapper;
-using Memento.Gpx.Infrastructures.Data;
-using Microsoft.EntityFrameworkCore;
+using ASP.Net.API.Memento.MiddleWare;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-
-string? stringConnection = builder.Configuration.GetConnectionString("MementoDatabase")
-    ?? throw new InvalidOperationException("Connection string 'MementoDatabase' not found."); ;
 
 builder.AddServiceDefaults();
 
@@ -18,20 +14,25 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-#region configuration du Dbcontext
-builder.Services.AddDbContext<MementoDbContext>(options =>{
-    options.UseSqlServer(stringConnection);
-});
+#region configuration des Dbcontext
+//string? stringConnection = builder.Configuration.GetConnectionString("MementoDatabase")
+//    ?? throw new InvalidOperationException("Connection string 'MementoDatabase' not found."); ;
+
+//builder.Services.AddDbContext<MementoDbContext>(options =>{
+//    options.UseSqlServer(stringConnection);
+//});
+builder.ConfigurationDbContextServiceCollection(); // -- Méthode d'instension
 #endregion
 
 #region Appel de AutoMapper
-var mapperConfig = new MapperConfiguration(mc =>
-{
-    mc.AddProfile(new MappingProfile());
-});
+builder.ConfigurationAutoMapperServiceCollection();
+//var mapperConfig = new MapperConfiguration(mc =>
+//{
+//    mc.AddProfile(new MappingProfile());
+//});
 
-IMapper mapper = mapperConfig.CreateMapper();
-builder.Services.AddSingleton(mapper);
+//IMapper mapper = mapperConfig.CreateMapper();
+//builder.Services.AddSingleton(mapper);
 #endregion
 
 var app = builder.Build();
