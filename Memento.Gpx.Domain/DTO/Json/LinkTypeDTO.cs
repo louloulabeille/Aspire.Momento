@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Memento.Gpx.Application.DTO.Json
+namespace Memento.Gpx.Domain.DTO.Json
 {
     public class LinkTypeDTO
     {

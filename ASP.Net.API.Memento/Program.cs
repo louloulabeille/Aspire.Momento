@@ -1,5 +1,8 @@
+using AutoMapper;
+using Memento.Gpx.Infrastructures.AutoMapper;
 using Memento.Gpx.Infrastructures.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,9 +17,22 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+#region configuration du Dbcontext
 builder.Services.AddDbContext<MementoDbContext>(options =>{
     options.UseSqlServer(stringConnection);
 });
+#endregion
+
+#region Appel de AutoMapper
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfile());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+#endregion
 
 var app = builder.Build();
 

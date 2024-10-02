@@ -1,7 +1,9 @@
 using ASP.Net.API.Memento.Controllers;
+using AutoMapper;
 using Castle.Core.Logging;
 using Grpc.Net.Client.Balancer;
 using Memento.Gpx.Domain;
+using Memento.Gpx.Infrastructures.AutoMapper;
 using Memento.Gpx.Infrastructures.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -35,9 +37,10 @@ namespace Test.ASP.Net.API.Memento
             var moqGpx = new Mock<DbSet<GpxType>>();
             var moqLogger = new Mock<ILogger<GpxController>>();
             var moqContext = new Mock<MementoDbContext>();
+            var moqMapper = new Mock<Mapper>();
             moqContext.Setup(item => item.GpxTypes).Returns(moqGpx.Object);
 
-            var controler = new GpxController(moqContext.Object, moqLogger.Object);
+            var controler = new GpxController(moqContext.Object, moqLogger.Object, moqMapper.Object);
 
             #endregion
             

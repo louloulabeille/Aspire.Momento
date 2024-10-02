@@ -1,4 +1,7 @@
-﻿using Memento.Gpx.Domain;
+﻿using AutoMapper;
+using Memento.Gpx.Domain;
+using Memento.Gpx.Domain.DTO.Json;
+using Memento.Gpx.Infrastructures.AutoMapper;
 using Memento.Gpx.Infrastructures.Data;
 using Memento.Gpx.Infrastructures.DataLayer;
 using Memento.Gpx.Interfaces.Layout;
@@ -25,7 +28,7 @@ namespace Memento.Gpx.Application.Repository
 
         public IEnumerable<GpxType> GatAll()
         {
-            return _layer.GetAll();
+            return _layer.GetAll(); ;
         }
 
         public IEnumerable<GpxType> GetGpxByDescDate()
