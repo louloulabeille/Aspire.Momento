@@ -12,6 +12,6 @@ namespace Memento.Gpx.Domain
         public string? Name { get; set; }
         public string? Email { get; set; }
         public LinkType? LinkType { get; set; } 
-        public required IEnumerable<GpxMetadataType> GpxMetadataType { get; set; }
+        public IEnumerable<GpxMetadataType>? GpxMetadataType { get; set; }
     }
 }

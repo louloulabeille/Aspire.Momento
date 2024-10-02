@@ -33,7 +33,7 @@ namespace ASP.Net.API.Memento.Controllers
             try
             {
                 #region DTO Manuel
-                // DTO facon manuelle
+                //DTO facon manuelle
                 //var datas = _repository.GatAll().Select(
                 //    x => new GpxTypeDTO
                 //    {
@@ -41,7 +41,7 @@ namespace ASP.Net.API.Memento.Controllers
                 //        Version = x.Version,
                 //        Creator = x.Creator,
                 //        // Object GpxMetadataType
-                //        GpxMetadataTypeDTO = x.GpxMetadataType is null ? null : new GpxMetadataTypeDTO
+                //        GpxMetadataType = x.GpxMetadataType is null ? null : new GpxMetadataTypeDTO
                 //        {
                 //            Id = x.GpxMetadataType.Id,
                 //            // object PersonType
@@ -51,7 +51,7 @@ namespace ASP.Net.API.Memento.Controllers
                 //                Name = x.GpxMetadataType.Author.Name,
                 //                Email = x.GpxMetadataType.Author.Email,
                 //                // LinkType object lien
-                //                LinkTypeDTO = x.GpxMetadataType.Author.LinkType is null ? null :
+                //                LinkType = x.GpxMetadataType.Author.LinkType is null ? null :
                 //                new LinkTypeDTO
                 //                {
                 //                    Id = x.GpxMetadataType.Author.LinkType.Id,
@@ -64,7 +64,7 @@ namespace ASP.Net.API.Memento.Controllers
                 //            Desc = x.GpxMetadataType.Desc,
                 //            Copyright = x.GpxMetadataType.Copyright,
                 //            // collection Linktype de l'object MetaData
-                //            LinkTypesDTO = x.GpxMetadataType.LinkTypes?.Select(x => new LinkTypeDTO
+                //            LinkTypes = x.GpxMetadataType.LinkTypes?.Select(x => new LinkTypeDTO
                 //            {
                 //                Id = x.Id,
                 //                Url = x.Url,
@@ -74,7 +74,7 @@ namespace ASP.Net.API.Memento.Controllers
                 //            Time = x.GpxMetadataType.Time,
                 //            Keywords = x.GpxMetadataType.Keywords,
                 //            // object de BoundsType 
-                //            BoundsTypeDTO = x.GpxMetadataType.BoundsType is null ? null :
+                //            BoundsType = x.GpxMetadataType.BoundsType is null ? null :
                 //            new BoundsTypeDTO
                 //            {
                 //                Id = x.GpxMetadataType.BoundsType.Id,
@@ -88,10 +88,11 @@ namespace ASP.Net.API.Memento.Controllers
                 //            GpxTypeId = x.GpxMetadataType.GpxTypeId
                 //        },
                 //        // object Waypoint à programmer
-                //        GpxWptTypesDTO = null, // le remplir par la suite
+                //        GpxWptTypes = null, // le remplir par la suite
                 //        Extensions = x.Extensions
                 //    });
                 #endregion
+
                 var gpx = _repository.GatAll();
                 var datas = _mapper.Map<IEnumerable<GpxTypeDTO>>(gpx);
 
@@ -119,10 +120,19 @@ namespace ASP.Net.API.Memento.Controllers
         [HttpPost]
         public IActionResult Post()
         {
-            var gpxValue = new GpxType() { Version = "1.1", Creator = "loulou"};
-            gpxValue.GpxMetadataType = new GpxMetadataType() {
+            var gpxValue = new GpxType() { Version = "1.1", Creator = "Memento V1.0"};
+            gpxValue.GpxMetadataType = new GpxMetadataType()
+            {
                 GpxType = gpxValue,
                 Time = DateTime.Now,
+                Author = new PersonType() { Name = "Loulou", Email = "louloulabeille@hotmail.com",
+                    LinkType = new LinkType()
+                    {
+                        Url = "https://docs.automapper.org/en/latest/Dependency-injection.html",
+                        Text = "Lien vers des endroits qui sont cachées",
+                        Type = "Url"
+                    },
+                }
             };
 
             _repository.Add(gpxValue);

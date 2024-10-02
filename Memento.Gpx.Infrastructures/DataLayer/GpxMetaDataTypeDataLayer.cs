@@ -16,7 +16,7 @@ namespace Memento.Gpx.Infrastructures.DataLayer
         public override GpxMetadataType? GetById(int id)
         {
             return base._dbSet.Include(x => x.GpxType).Include(x => x.LinkTypes)
-                .Include(x => x.Author).Include(x => x.BoundsType)
+                .Include(x => x.Author).Include(x => x.Author!.LinkType).Include(x => x.BoundsType)
                 .Where(x => x.Id == id).FirstOrDefault();
         }
         #endregion
