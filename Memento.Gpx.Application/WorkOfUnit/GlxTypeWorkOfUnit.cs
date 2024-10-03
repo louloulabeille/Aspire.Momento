@@ -18,10 +18,7 @@ namespace Memento.Gpx.Application.WorkOfUnit
         #endregion
 
         #region Méthode d'interface IGpxTypeWorkOfUnit
-        public void Dispose()
-        {
-            this.Dispose();
-        }
+        public virtual void Dispose() => GC.SuppressFinalize(this);
 
         public IGpxTypeRepository GetInstance()
         {

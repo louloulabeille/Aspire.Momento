@@ -37,7 +37,8 @@ builder.ConfigurationAutoMapperServiceCollection();
 //builder.Services.AddSingleton(mapper);
 #endregion
 #region Injection
-builder.Services.AddScoped<IGpxTypeWorkOfUnit,GlxTypeWorkOfUnit>();
+//builder.Services.AddScoped<IGpxTypeWorkOfUnit,GlxTypeWorkOfUnit>();
+builder.ConfigurationInjectionWorkOfUnitServiceCollection();
 #endregion
 
 var app = builder.Build();

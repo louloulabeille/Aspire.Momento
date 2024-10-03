@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Memento.Gpx.Application.WorkOfUnit;
 using Memento.Gpx.Infrastructures.AutoMapper;
 using Memento.Gpx.Infrastructures.Data;
+using Memento.Gpx.Interfaces.WorkOfUnit;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Specialized;
 using System.Runtime.CompilerServices;
@@ -36,6 +38,18 @@ namespace ASP.Net.API.Memento.MiddleWare
 
             IMapper mapper = mapperConfig.CreateMapper();
             builder.Services.AddSingleton(mapper);
+            return builder;
+        }
+        /// <summary>
+        /// Méthode d'instansion de paramétrage d'injection des différents classe
+        /// WorkOfUnit
+        /// </summary>
+        /// <param name="builder">WebApplicationBuilder</param>
+        /// <returns></returns>
+        public static WebApplicationBuilder ConfigurationInjectionWorkOfUnitServiceCollection(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddScoped<IGpxTypeWorkOfUnit, GlxTypeWorkOfUnit>();
+
             return builder;
         }
     }
