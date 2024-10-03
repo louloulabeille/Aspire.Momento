@@ -26,7 +26,7 @@ namespace Memento.Gpx.Application.Repository
             _layer.Add(fichierGpx);
         }
 
-        public IEnumerable<GpxType> GatAll()
+        public IEnumerable<GpxType> GetAll()
         {
             return _layer.GetAll(); ;
         }

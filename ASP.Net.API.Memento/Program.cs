@@ -2,6 +2,8 @@ using AutoMapper;
 using Memento.Gpx.Infrastructures.AutoMapper;
 using ASP.Net.API.Memento.MiddleWare;
 using Microsoft.Extensions.DependencyInjection;
+using Memento.Gpx.Interfaces.WorkOfUnit;
+using Memento.Gpx.Application.WorkOfUnit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +35,9 @@ builder.ConfigurationAutoMapperServiceCollection();
 
 //IMapper mapper = mapperConfig.CreateMapper();
 //builder.Services.AddSingleton(mapper);
+#endregion
+#region Injection
+builder.Services.AddScoped<IGpxTypeWorkOfUnit,GlxTypeWorkOfUnit>();
 #endregion
 
 var app = builder.Build();

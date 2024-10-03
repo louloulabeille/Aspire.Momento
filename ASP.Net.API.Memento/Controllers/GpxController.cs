@@ -5,6 +5,7 @@ using Memento.Gpx.Domain.DTO.Json;
 using Memento.Gpx.Infrastructures.AutoMapper;
 using Memento.Gpx.Infrastructures.Data;
 using Memento.Gpx.Interfaces.Repository;
+using Memento.Gpx.Interfaces.WorkOfUnit;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,12 +14,13 @@ namespace ASP.Net.API.Memento.Controllers
 {
     [Route("api/v1/Memento/[controller]")]
     [ApiController]
-    public class GpxController(MementoDbContext context, ILogger<GpxController>? logger, IMapper mapper) : ControllerBase
+    public class GpxController(ILogger<GpxController>? logger, IMapper mapper, IGpxTypeWorkOfUnit workOfUnit) : ControllerBase
     {
         #region Properties
-        private readonly MementoDbContext _context = context;
+        //private readonly MementoDbContext _context = context;
         private readonly ILogger<GpxController>? _logger = logger;
-        private readonly GpxTypeRepository _repository = new (context);
+        //private readonly GpxTypeRepository _repository = new (context);
+        private readonly IGpxTypeWorkOfUnit _workOfUnit = workOfUnit;
         private readonly IMapper _mapper = mapper;
         #endregion
 
@@ -93,7 +95,8 @@ namespace ASP.Net.API.Memento.Controllers
                 //    });
                 #endregion
 
-                var gpx = _repository.GatAll();
+                //var gpx = _repository.GatAll();
+                var gpx = _workOfUnit.GetInstance().GetAll();
                 var datas = _mapper.Map<IEnumerable<GpxTypeDTO>>(gpx);
 
                 if (datas is not null)
@@ -120,25 +123,30 @@ namespace ASP.Net.API.Memento.Controllers
         [HttpPost]
         public IActionResult Post()
         {
+            IActionResult retour = BadRequest(); 
             var gpxValue = new GpxType() { Version = "1.1", Creator = "Memento V1.0"};
             gpxValue.GpxMetadataType = new GpxMetadataType()
             {
                 GpxType = gpxValue,
                 Time = DateTime.Now,
-                Author = new PersonType() { Name = "Loulou", Email = "louloulabeille@hotmail.com",
+                Author = new PersonType() { Name = "Lili", Email = "lili@hotmail.com",
                     LinkType = new LinkType()
                     {
-                        Url = "https://docs.automapper.org/en/latest/Dependency-injection.html",
-                        Text = "Lien vers des endroits qui sont cachées",
-                        Type = "Url"
+                        Url = "https://www.photo-paysage.com/albums/userpics/10001/Cascade_-15.JPG",
+                        Text = "Photo d'une cascade quelque part dans le monde.",
+                        Type = "Image"
                     },
                 }
             };
 
-            _repository.Add(gpxValue);
-            _context.SaveChanges();
+            _workOfUnit.GetInstance().Add(gpxValue);
+            int nbEng = _workOfUnit.Save();
+            if ( nbEng > 0)
+            {
+                retour = this.Ok();
+            }
 
-            return this.Ok();
+            return retour;
         }
     }
 }
