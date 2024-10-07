@@ -5,6 +5,7 @@ using Grpc.Net.Client.Balancer;
 using Memento.Gpx.Application.Repository;
 using Memento.Gpx.Application.WorkOfUnit;
 using Memento.Gpx.Domain;
+using Memento.Gpx.Domain.DTO.Json;
 using Memento.Gpx.Infrastructures.AutoMapper;
 using Memento.Gpx.Infrastructures.Data;
 using Memento.Gpx.Interfaces.WorkOfUnit;
@@ -52,15 +53,14 @@ namespace Test.ASP.Net.API.Memento
 
             #region init
             var moqLogger = new Mock<ILogger<GpxController>>();
-            var moqDbContext = new Mock<MementoDbContext>();
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
             });
             IMapper mapper = mapperConfig.CreateMapper();
             var moqWorkOfUnit = new Mock<IGpxTypeWorkOfUnit>();
-            moqWorkOfUnit.Setup(item => item.GetInstance()
-            .Add(new GpxType() { Version = "1.1", Creator = "Loulou" }));
+            var gpx = new GpxTypeDTO() { Version = "1.1", Creator = "louloulabeille"};
+            moqWorkOfUnit.Setup(item => item.GetInstance().Add(mapper.Map<GpxType>(gpx)));
             moqWorkOfUnit.Setup(item => item.Save()).Returns(1);
 
             var controler = new GpxController(moqLogger.Object, mapper, moqWorkOfUnit.Object);
@@ -68,13 +68,16 @@ namespace Test.ASP.Net.API.Memento
             #endregion
 
             #region Act
-            var result = controler.Post();
+            var result = controler.Post(gpx);
             #endregion
 
-            #region Control
+            #region Control Assert
             Assert.NotNull(result);
-            Assert.True(result is OkResult);
-            
+            Assert.IsType<OkResult>(result);
+
+            OkResult? resultat = result as OkResult;
+            Assert.NotNull(resultat);
+            Assert.Equal(200, resultat.StatusCode);
             #endregion
         }
     }

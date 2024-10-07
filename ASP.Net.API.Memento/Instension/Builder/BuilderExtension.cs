@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Specialized;
 using System.Runtime.CompilerServices;
 
-namespace ASP.Net.API.Memento.MiddleWare
+namespace ASP.Net.API.Memento.Instension.Builder
 {
     public static class BuilderExtension
     {
@@ -17,28 +17,35 @@ namespace ASP.Net.API.Memento.MiddleWare
         /// <param name="builder"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public static WebApplicationBuilder ConfigurationDbContextServiceCollection (this WebApplicationBuilder builder)
+        public static IServiceCollection ConfigurationDbContextServiceCollection(this IServiceCollection service, WebApplicationBuilder builder)
         {
             string? stringConnection = builder.Configuration.GetConnectionString("MementoDatabase")
                 ?? throw new InvalidOperationException("Connection string 'MementoDatabase' not found.");
             ;
 
-            builder.Services.AddDbContext<MementoDbContext>(options => {
+            service.AddDbContext<MementoDbContext>(options =>
+            {
                 options.UseSqlServer(stringConnection);
             });
 
-            return builder;
+            return service;
         }
-
-        public static WebApplicationBuilder ConfigurationAutoMapperServiceCollection(this WebApplicationBuilder builder) {
+        /// <summary>
+        /// instenciation du Mapper et ajout aux services de l'apllication en injection de dépendance
+        /// en singleton
+        /// </summary>
+        /// <param name="service"></param>
+        /// <returns></returns>
+        public static IServiceCollection ConfigurationAutoMapperServiceCollection(this IServiceCollection service)
+        {
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
             });
 
             IMapper mapper = mapperConfig.CreateMapper();
-            builder.Services.AddSingleton(mapper);
-            return builder;
+            service.AddSingleton(mapper);
+            return service;
         }
         /// <summary>
         /// Méthode d'instansion de paramétrage d'injection des différents classe
@@ -46,11 +53,11 @@ namespace ASP.Net.API.Memento.MiddleWare
         /// </summary>
         /// <param name="builder">WebApplicationBuilder</param>
         /// <returns></returns>
-        public static WebApplicationBuilder ConfigurationInjectionWorkOfUnitServiceCollection(this WebApplicationBuilder builder)
+        public static IServiceCollection ConfigurationInjectionWorkOfUnitServiceCollection(this IServiceCollection service)
         {
-            builder.Services.AddScoped<IGpxTypeWorkOfUnit, GlxTypeWorkOfUnit>();
+            service.AddScoped<IGpxTypeWorkOfUnit, GlxTypeWorkOfUnit>();
 
-            return builder;
+            return service;
         }
     }
 }

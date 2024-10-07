@@ -1,9 +1,4 @@
-using AutoMapper;
-using Memento.Gpx.Infrastructures.AutoMapper;
-using ASP.Net.API.Memento.MiddleWare;
-using Microsoft.Extensions.DependencyInjection;
-using Memento.Gpx.Interfaces.WorkOfUnit;
-using Memento.Gpx.Application.WorkOfUnit;
+using ASP.Net.API.Memento.Instension.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,11 +18,10 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddDbContext<MementoDbContext>(options =>{
 //    options.UseSqlServer(stringConnection);
 //});
-builder.ConfigurationDbContextServiceCollection(); // -- Méthode d'instension
+builder.Services.ConfigurationDbContextServiceCollection(builder); // -- Méthode d'instension
 #endregion
-
 #region Appel de AutoMapper
-builder.ConfigurationAutoMapperServiceCollection();
+builder.Services.ConfigurationAutoMapperServiceCollection();
 //var mapperConfig = new MapperConfiguration(mc =>
 //{
 //    mc.AddProfile(new MappingProfile());
@@ -38,7 +32,7 @@ builder.ConfigurationAutoMapperServiceCollection();
 #endregion
 #region Injection
 //builder.Services.AddScoped<IGpxTypeWorkOfUnit,GlxTypeWorkOfUnit>();
-builder.ConfigurationInjectionWorkOfUnitServiceCollection();
+builder.Services.ConfigurationInjectionWorkOfUnitServiceCollection();
 #endregion
 
 var app = builder.Build();

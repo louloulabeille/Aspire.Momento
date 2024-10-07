@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace Memento.Gpx.Application.WorkOfUnit
 {
+    /// <summary>
+    /// comme d'hab modifié ce WorkOfUnit
+    /// </summary>
+    /// <param name="dbContext"></param>
     public class GlxTypeWorkOfUnit(MementoDbContext dbContext) : IGpxTypeWorkOfUnit
     {
         #region Properties

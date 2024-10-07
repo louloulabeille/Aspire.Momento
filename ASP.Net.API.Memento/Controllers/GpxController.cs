@@ -121,23 +121,27 @@ namespace ASP.Net.API.Memento.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post()
+        public IActionResult Post(GpxTypeDTO gpx)
         {
-            IActionResult retour = BadRequest(); 
-            var gpxValue = new GpxType() { Version = "1.1", Creator = "Memento V1.0"};
-            gpxValue.GpxMetadataType = new GpxMetadataType()
-            {
-                GpxType = gpxValue,
-                Time = DateTime.Now,
-                Author = new PersonType() { Name = "Lili", Email = "lili@hotmail.com",
-                    LinkType = new LinkType()
-                    {
-                        Url = "https://www.photo-paysage.com/albums/userpics/10001/Cascade_-15.JPG",
-                        Text = "Photo d'une cascade quelque part dans le monde.",
-                        Type = "Image"
-                    },
-                }
-            };
+            IActionResult retour = BadRequest();
+            var gpxValue = new GpxType() { Version = "1.1", Creator = "Memento V1.0" };
+            //gpxValue.GpxMetadataType = new GpxMetadataType()
+            //{
+            //    GpxType = gpxValue,
+            //    Time = DateTime.Now,
+            //    Author = new PersonType()
+            //    {
+            //        Name = "Lili",
+            //        Email = "lili@hotmail.com",
+            //        LinkType = new LinkType()
+            //        {
+            //            Url = "https://www.photo-paysage.com/albums/userpics/10001/Cascade_-15.JPG",
+            //            Text = "Photo d'une cascade quelque part dans le monde.",
+            //            Type = "Image"
+            //        },
+            //    }
+            //};
+            //var gpxValue = _mapper.Map<GpxType>(gpx);
 
             _workOfUnit.GetInstance().Add(gpxValue);
             int nbEng = _workOfUnit.Save();
